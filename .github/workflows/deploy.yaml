@@ -37,6 +37,7 @@ jobs:
           OPENAI_API_KEY: ${{  env.CURRENT_BRANCH =='production' && secrets.PROD_OPENAI_API_KEY || secrets.STAGING_OPENAI_API_KEY }}
           HOSTING_DOMAIN: ${{  env.CURRENT_BRANCH =='production' && secrets.PROD_HOSTING_DOMAIN || secrets.STAGING_HOSTING_DOMAIN }}          
           HTTP_PORT: '8081'
+          SERVICE: ${{ env.CURRENT_BRANCH =='production' && 'prod-dreams' || 'staging-dreams' }}
       - uses: google-github-actions/auth@v1
         with:
           credentials_json: ${{ secrets.gcp_deploy_creds }}
