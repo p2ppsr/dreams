@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 app.use(
   authrite.middleware({
     serverPrivateKey: process.env.SERVER_PRIVATE_KEY,
-    baseUrl: process.env.HOSTING_DOMAIN,
+    baseUrl: process.env.HOSTING_DOMAIN
   })
 )
 
@@ -62,8 +62,8 @@ app.use(
     },
     serverPrivateKey: process.env.SERVER_PRIVATE_KEY,
     ninjaConfig: {
-      dojoURL: process.env.DOJO_URL,
-    },
+      dojoURL: process.env.DOJO_URL
+    }
   })
 )
 
@@ -81,13 +81,13 @@ app.post('/analyze', async (req, res) => {
         {
           role: 'system',
           content:
-            'You are a professional dream analyzer. Analyze the dreams provided by the user.',
+            'You are a professional dream analyzer. Analyze the dreams provided by the user.'
         },
         {
           role: 'user',
-          content: dreamText,
-        },
-      ],
+          content: dreamText
+        }
+      ]
     })
 
     const analysis = completion.choices[0].message.content
