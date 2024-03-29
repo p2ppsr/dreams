@@ -6,8 +6,16 @@ const authrite = require('authrite-express')
 const PacketPay = require('@packetpay/express')
 const OpenAI = require('openai')
 
+const path = require('path')
+
 const app = express()
 const port = process.env.HTTP_PORT || 8080
+const HTTP_PORT = process.env.HTTP_PORT || 3001
+const ROUTING_PREFIX = process.env.ROUTING_PREFIX || '/api'
+const HOSTING_DOMAIN = process.env.HOSTING_DOMAIN || 'http://localhost:3001'
+const { SERVER_PRIVATE_KEY, SPAWN_NGINX } = process.env
+
+const spawn = require('child_process').spawn
 
 // Your OpenAI API Key
 // @ts-ignore
@@ -52,6 +60,10 @@ app.use(
   })
 )
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build', 'index.html'))
+})
+
 app.post('/analyze', async (req, res) => {
   const { dreamText } = req.body
 
@@ -83,6 +95,9 @@ app.post('/analyze', async (req, res) => {
   }
 })
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`)
+app.listen(HTTP_PORT, async () => {
+  console.log('Gateway Payment Server listening on port', HTTP_PORT)
+  if (SPAWN_NGINX === 'yes') {
+    spawn('nginx', [], { stdio: [process.stdin, process.stdout, process.stderr] })
+  }
 })
