@@ -6,7 +6,9 @@ import React from "react"
 const baseUrl =
   window.location.href.indexOf('local') !== -1
     ? 'http://localhost:3001'
-    : 'https://dreams-backend.babbage.systems'
+    : window.location.href.indexOf('staging') !== -1
+      ? 'https://staging-dreams.babbage.systems'
+      : 'https://dreams.babbage.systems'
 
 const AnalyzingScreen = ({ dreamText, onAnalysisComplete, onMetaNetClientNeeded }: any) => {
   useEffect(() => {
