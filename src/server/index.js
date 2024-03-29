@@ -38,6 +38,10 @@ app.use((req, res, next) => {
   }
 })
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build', 'index.html'))
+})
+
 app.use(
   authrite.middleware({
     serverPrivateKey: process.env.SERVER_PRIVATE_KEY,
@@ -59,10 +63,6 @@ app.use(
     },
   })
 )
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build', 'index.html'))
-})
 
 app.post('/analyze', async (req, res) => {
   const { dreamText } = req.body
