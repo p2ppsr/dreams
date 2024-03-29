@@ -1,0 +1,41 @@
+.zoomHeader {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  span {
+    font-size: 2rem;
+    margin-right: 0.25rem;
+  }
+}
+
+.animatedHeader {
+  text-align: center;
+  font-size: 5rem;
+  margin-block: 0;
+}
+
+// Define keyframes for the zoom effect
+@keyframes zoomEffect2 {
+  0%,
+  100% {
+    transform: scale(1); // Original size
+  }
+  50% {
+    transform: scale(1.25); // Grow to 120% size
+  }
+}
+
+// Adjust the total animation duration and the calculation for delays
+$totalCharacters: 20;
+$animationDuration: 4s; // Total duration for one cycle of animation for a single character
+$delayIncrement: calc($animationDuration / $totalCharacters); // Adjust delay based on total duration and number of characters
+
+@for $i from 1 through $totalCharacters {
+  .zoom-text2-#{$i} {
+    display: inline-block;
+    animation: zoomEffect2 $animationDuration ease-in-out infinite;
+    // Calculate delay to ensure sequential animation without overlap
+    animation-delay: ($i - 1) * $delayIncrement;
+    margin-right: 0.25rem; // Space between characters
+  }
+}

@@ -1,0 +1,100 @@
+@font-face {
+  font-family: Raleway;
+  src: url('./assets/Raleway-VariableFont_wght.ttf');
+}
+
+body {
+  font-family: 'Raleway', system-ui, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+button {
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: .2s;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+h2 {
+  color:rgba(0,0,0,0.67);
+}
+
+.centerBlock {
+  display: block;
+  margin: auto;
+}
+
+textarea {
+  display: block;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: .5rem;
+  min-height:10rem;
+  width:50vw;
+  background:rgba(255,255,255,0.67);
+  padding: 1rem;
+  font-family: Arial;
+  margin-bottom: .5rem;
+  font-size: 1.25rem;
+}
+
+// Define a mixin for a subtler multicolor gradient
+@mixin ghibli-pastel-background {
+  background: linear-gradient(
+    60deg,
+    rgba(255, 182, 193, 0.6),
+    // Light Pink
+    rgba(135, 206, 235, 0.6),
+    // Sky Blue
+    rgba(255, 218, 185, 0.6),
+    // Peach
+    rgba(221, 160, 221, 0.6),
+    // Plum
+    rgba(144, 238, 144, 0.6),
+    // Light Green
+    rgba(250, 214, 165, 0.6),
+    // Soft Orange
+    rgba(255, 182, 193, 0.6)
+  ); // Light Pink again for smooth transition
+  background-size: 800% 800%;
+  animation: ghibliPastelAnimation 30s ease infinite;
+}
+
+// Keyframes for the Ghibli-inspired pastel gradient animation
+@keyframes ghibliPastelAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Application of the Ghibli pastel background
+body {
+  @include ghibli-pastel-background;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333; // Darker text for contrast against lighter background
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8); // White text shadow for legibility
+  overflow: hidden;
+  margin: 0;
+}

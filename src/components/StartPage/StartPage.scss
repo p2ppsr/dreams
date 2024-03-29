@@ -1,0 +1,25 @@
+.animatedHeader {
+  text-align: center;
+  font-size: 5rem;
+  margin-block: 0;
+}
+
+// Define keyframes for the wobble effect
+@keyframes zoomEffect {
+  0%, 100% {
+    transform: scale(1); // Original size
+  }
+  50% {
+    transform: scale(1.2); // Grow
+  }
+}
+
+// Generate classes with varying animation delays
+@for $i from 1 through 20 {
+  .zoom-text-#{$i} {
+    display: inline-block;
+    animation: zoomEffect 2s ease-in-out infinite;
+    animation-delay: $i * 0.2s;
+    margin-right:.5rem;
+  }
+}

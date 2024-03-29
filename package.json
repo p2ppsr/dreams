@@ -1,23 +1,19 @@
 {
-  "name": "simple-react-app",
-  "description": "A simple template for a webpack-based React app",
+  "name": "dreams",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@packetpay/express": "^0.2.6",
-    "@packetpay/js": "^0.2.5",
-    "authrite-express": "^0.4.7",
-    "body-parser": "^1.20.2",
-    "dotenv": "^16.4.5",
-    "express": "^4.18.3",
+    "@packetpay/express": "^0.2.11",
+    "@packetpay/js": "^0.2.11",
+    "authrite-express": "^0.4.12",
     "next-share": "^0.27.0",
-    "openai": "^3.2.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "openai": "^4.30.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "scripts": {
-    "start": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "start": "webpack serve --config webpack.dev.ts",
+    "build": "webpack --config webpack.prod.ts"
   },
   "eslintConfig": {
     "extends": [
@@ -38,18 +34,31 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.18.5",
-    "@babel/preset-env": "^7.18.2",
-    "@babel/preset-react": "^7.17.12",
-    "babel-loader": "^8.2.5",
+    "@babel/core": "^7.23.9",
+    "@babel/plugin-transform-react-jsx": "^7.23.4",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@types/react-dom": "^18.2.18",
+    "@types/uuid4": "^2.0.3",
+    "@types/webfontloader": "^1.6.38",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-dev-server": "^4.7.2",
+    "babel-loader": "^8.3.0",
     "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.7.1",
+    "css-loader": "^6.10.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "node-polyfill-webpack-plugin": "^1.1.4",
+    "sass": "^1.70.0",
+    "sass-loader": "^14.1.0",
     "standard": "^17.0.0",
-    "style-loader": "^3.3.1",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
     "url-loader": "^4.1.1",
-    "webpack": "^5.74.0",
+    "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.2",
     "webpack-merge": "^5.8.0"
