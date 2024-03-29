@@ -10,6 +10,7 @@ const app = express();
 const port = process.env.HTTP_PORT || 8080;
 
 // Your OpenAI API Key
+// @ts-ignore
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
 })
