@@ -9,18 +9,15 @@ const OpenAI = require('openai')
 const path = require('path')
 
 const app = express()
-const port = process.env.HTTP_PORT || 8080
 const HTTP_PORT = process.env.HTTP_PORT || 3001
-const ROUTING_PREFIX = process.env.ROUTING_PREFIX || '/api'
-const HOSTING_DOMAIN = process.env.HOSTING_DOMAIN || 'http://localhost:3001'
-const { SERVER_PRIVATE_KEY, SPAWN_NGINX } = process.env
+const { SPAWN_NGINX } = process.env
 
 const spawn = require('child_process').spawn
 
 // Your OpenAI API Key
 // @ts-ignore
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // This is also the default, can be omitted
+  apiKey: process.env.OPENAI_API_KEY
 })
 
 app.use(bodyParser.json({ limit: '1gb', type: 'application/json' }))
