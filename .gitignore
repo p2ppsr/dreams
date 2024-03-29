@@ -27,5 +27,5 @@ yarn-error.log*
 .prettierrc
 
 tmp
-dist
+build
 data
