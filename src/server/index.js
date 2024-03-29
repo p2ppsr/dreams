@@ -23,7 +23,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // This is also the default, can be omitted
 })
 
-app.use(bodyParser.json())
+app.use(bodyparser.json({ limit: '1gb', type: 'application/json' }))
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
@@ -37,6 +37,9 @@ app.use((req, res, next) => {
     next()
   }
 })
+
+// Serve static files
+app.use(express.static('build'))
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../../build', 'index.html'))
