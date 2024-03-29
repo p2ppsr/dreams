@@ -23,7 +23,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // This is also the default, can be omitted
 })
 
-app.use(bodyparser.json({ limit: '1gb', type: 'application/json' }))
+app.use(bodyParser.json({ limit: '1gb', type: 'application/json' }))
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
