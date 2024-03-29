@@ -7,7 +7,7 @@ const MetaNetClientCheck = ({ onClientDetected }) => {
     useEffect(() => {
         const intervalId = setInterval(async () => {
             const clientDetected = await checkForMetaNetClient();
-            if (clientDetected === 1) {
+            if (clientDetected === 1 || 0) {
                 clearInterval(intervalId);
                 setWaitingForClient(false);
                 onClientDetected(); // Callback to notify App component that MetaNet Client is detected
@@ -26,7 +26,7 @@ const MetaNetClientCheck = ({ onClientDetected }) => {
 
     const handleCheckNow = async () => {
         const clientDetected = await checkForMetaNetClient();
-        if (clientDetected === 1) {
+        if (clientDetected === 1 || 0) {
             setWaitingForClient(false);
             onClientDetected();
         } else if (clientDetected === -1) {

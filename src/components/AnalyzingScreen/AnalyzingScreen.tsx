@@ -12,7 +12,7 @@ const AnalyzingScreen = ({ dreamText, onAnalysisComplete, onMetaNetClientNeeded 
   useEffect(() => {
     ;(async () => {
       const userHasMetaNetClient = await checkForMetaNetClient()
-      if (userHasMetaNetClient === 1) {
+      if (userHasMetaNetClient === 1 || 0) {
         try {
           const result = await PacketPay(`${baseUrl}/analyze`, {
             method: 'POST',
