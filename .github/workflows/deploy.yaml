@@ -32,7 +32,6 @@ jobs:
       - name: "Create service description file"
         run: "./scripts/mkenv.sh service.${{ env.CURRENT_BRANCH }}.yaml"
         env:
-          
           SERVER_PRIVATE_KEY: ${{  env.CURRENT_BRANCH =='production' && secrets.PROD_SERVER_PRIVATE_KEY || secrets.STAGING_SERVER_PRIVATE_KEY }}
           DOJO_URL: ${{  env.CURRENT_BRANCH =='production' && secrets.PROD_DOJO_URL || secrets.STAGING_DOJO_URL }}
           OPENAI_API_KEY: ${{  env.CURRENT_BRANCH =='production' && secrets.PROD_OPENAI_API_KEY || secrets.STAGING_OPENAI_API_KEY }}
