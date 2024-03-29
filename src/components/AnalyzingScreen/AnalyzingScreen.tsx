@@ -5,12 +5,12 @@ import React from "react"
 
 const baseUrl =
   window.location.href.indexOf('local') !== -1
-    ? 'http://localhost:8080'
+    ? 'http://localhost:3001'
     : 'https://dreams-backend.babbage.systems'
 
 const AnalyzingScreen = ({ dreamText, onAnalysisComplete, onMetaNetClientNeeded }: any) => {
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const userHasMetaNetClient = await checkForMetaNetClient()
       if (userHasMetaNetClient === 1 || 0) {
         try {

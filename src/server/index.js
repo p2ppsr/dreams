@@ -72,7 +72,7 @@ app.post('/analyze', async (req, res) => {
   }
 
   try {
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [
         {
@@ -87,7 +87,7 @@ app.post('/analyze', async (req, res) => {
       ],
     })
 
-    const analysis = completion.data.choices[0].message.content
+    const analysis = completion.choices[0].message.content
     res.json({ analysis })
   } catch (error) {
     console.error('Error calling OpenAI:', error)
