@@ -5,9 +5,6 @@ import './StartPage.scss'
 import React from "react"
 
 const StartPage = ({ onGetStarted }: any) => {
-  useEffect(() => {
-    console.log('loaded')
-  }, [])
 
   return (
     <div>
