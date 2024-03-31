@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import checkForMetaNetClient from "../../utils/checkForMetaNetClient";
 
-const MetaNetClientCheck = ({ onClientDetected }) => {
+const MetaNetClientCheck = ({ onClientDetected }: any) => {
     const [waitingForClient, setWaitingForClient] = useState(true);
 
     useEffect(() => {

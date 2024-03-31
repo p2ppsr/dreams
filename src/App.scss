@@ -40,10 +40,12 @@ h2 {
 
 textarea {
   display: block;
+  margin: auto;
+  width:80vw;
+  max-width:30rem;
   border: 1px solid rgba(0,0,0,0.3);
   border-radius: .5rem;
   min-height:10rem;
-  width:50vw;
   background:rgba(255,255,255,0.67);
   padding: 1rem;
   font-family: Arial;
