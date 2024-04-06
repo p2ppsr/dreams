@@ -15,7 +15,7 @@
 }
 
 // Generate classes with varying animation delays
-@for $i from 1 through 20 {
+@for $i from 1 through 6 {
   .zoom-text-#{$i} {
     display: inline-block;
     animation: zoomEffect 2s ease-in-out infinite;

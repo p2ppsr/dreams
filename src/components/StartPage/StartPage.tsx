@@ -15,7 +15,7 @@ const StartPage = ({ onGetStarted }: any) => {
         <span className="zoom-text-3">e</span>
         <span className="zoom-text-4">a</span>
         <span className="zoom-text-5">m</span>
-        <span className="zoom-text-5">s</span>
+        <span className="zoom-text-6">s</span>
       </h1>
       <p>Discover the hidden meanings behind your dreams.</p>
       <button className="centerBlock" onClick={onGetStarted} style={{ marginTop: '2rem' }}>
