@@ -18,7 +18,7 @@
 <h1>Development Instructions</h1>
 <ul>
   <li>Clone the repo, then run <code>npm i</code> to install packages.</li>
-  <li>To start the live development server on <code>localhost:3000</code>, run <code>npm i</code></li>
+  <li>To start the live development server on <code>localhost:3000</code>, run <code>npm run start</code></li>
   <li>Your browser should automatically open, and your changes should be reflected on-screen whenever you reload.</li>
 </ul>
 
