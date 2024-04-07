@@ -6,7 +6,8 @@
 
 // Define keyframes for the wobble effect
 @keyframes zoomEffect {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1); // Original size
   }
   50% {
@@ -20,6 +21,20 @@
     display: inline-block;
     animation: zoomEffect 2s ease-in-out infinite;
     animation-delay: $i * 0.2s;
-    margin-right:.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.githubContainer {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1.5rem;
+  filter: opacity(0.6);
+  transition: 0.2s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1) translateX(calc(-50% * 0.9));
   }
 }
