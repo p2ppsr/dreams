@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+umask 077
 
 # Memory limit for the container
 MEMORY_LIMIT="4Gi" # Example: 512Mi, 1Gi, etc.
@@ -33,5 +35,4 @@ perl -E'
 ' SPAWN_NGINX SERVER_PRIVATE_KEY DOJO_URL OPENAI_API_KEY HOSTING_DOMAIN HTTP_PORT >> $1
 
 
-echo "Built! Contents of $1:"
-cat $1
+echo "Service description written; contents withheld."

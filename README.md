@@ -30,3 +30,16 @@
 
 <h1>License</h1>
 <p>The license for the code in this repository is the Open BSV License.</p>
+
+
+## October 2026 Node security maintenance
+
+The retained Linux recipe uses Node22.23.4 and the frozen dependency lock.
+Build tools come from that lock; the build context excludes local dependencies,
+environment files and generated service credentials. The former Cloud Run
+deploy workflow is retired at `docs/legacy-cloud-run-deploy.yaml.txt`; branch
+pushes cannot recreate those legacy services. The replacement CI checks source
+syntax and builds the Linux image, then exercises its native Node/Brotli/crypto.
+A passing image check does not establish application, database, payment or
+production restoration acceptance. Any restoration requires current ownership,
+configuration, dependencies and a separately qualified deployment.
