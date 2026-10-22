@@ -1,15 +1,16 @@
-FROM node:20-alpine
+FROM node:22.23.4-alpine
 
 # Install nginx
-RUN echo "http://dl-4.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories && \
-    apk add --no-cache --update nginx && \
-    chown -R nginx:www-data /var/lib/nginx
+RUN apk add --no-cache nginx bash && \
+    install -d -o nginx -g nginx /var/lib/nginx /run/nginx
 
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 8080
 WORKDIR /app
+ENV PATH="/app/node_modules/.bin:${PATH}"
+COPY package.json package-lock.json ./
+RUN npm ci --include=optional
 COPY . .
-RUN npm i knex -g && \
-    npm run build
+RUN npm run build
 CMD [ "node", "src/server/index.js"]
